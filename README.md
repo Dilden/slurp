@@ -2,14 +2,19 @@
 
 Slurp is a PHP CLI app that is useful for downloading a web page (or web site) and searching that for a particular string, phrase, or HTML element.
 
+## Requirements
+
+[PHP 5.5](https://secure.php.net/) or greater
+[Composer](https://getcomposer.org/)
+
+## Installation
+
+For now, you should clone this [GitHub repo](https://github.com/Dilden/slurp). Once you've done that, run `composer install` in the project directory.
+
 
 ## How do I use slurp?
 
 It's easy. After installing slurp, just run the bash script with `./slurp`.
-
-## Installation
-
-For now, you should clone this [GitHub repo](https://github.com/Dilden/slurp).
 
 ## License
 
