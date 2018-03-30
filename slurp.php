@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /**
  * Slurp up some web pages and search their source code for an element
@@ -13,11 +14,10 @@ use slurp\Slurp;
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-
+// get config options
 $config = json_decode(file_get_contents(__DIR__ . '/config/config.json'));
-// $argv = parameters after command
+// start app
+$app = new Slurp($config, $argv);
+$exitCode = $app->run();
 
-
-$app = new Slurp($config);
-$exitCode = $app->run($config);
 exit($exitCode);

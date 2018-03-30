@@ -14,7 +14,7 @@ For now, you should clone this [GitHub repo](https://github.com/Dilden/slurp). O
 
 ## How do I use slurp?
 
-It's easy. After installing slurp, just run the bash script with `./slurp`.
+It's easy. After installing slurp, just run the script with `php slurp.php`.
 
 ## License
 
