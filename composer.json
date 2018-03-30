@@ -3,6 +3,7 @@
     "description": "Slurp up some web pages and search their source code for an element",
     "type": "library",
     "require": {
+        "php": ">=5.5",
         "guzzlehttp/guzzle": "^6.3"
     },
     "license": "MIT",
