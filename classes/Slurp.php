@@ -20,7 +20,11 @@ class Slurp {
 		}
 
 		$url = $this->params[1];
-		$directory = getcwd(). "/" . $this->config->directory . "/";
+
+		// Directory check
+		if (!file_exists($this->config->directory) && !is_dir($this->config->directory)) {
+			mkdir($this->config->directory);
+		}
 
 		$client = new client([
 			'base_uri' => $url,
@@ -30,7 +34,7 @@ class Slurp {
 		$response = $client->request('GET');
 		$body = $response->getBody();
 
-		file_put_contents($directory . parse_url($url,  PHP_URL_HOST) . ".html", (string) $body);
+		file_put_contents($this->config->directory . parse_url($url,  PHP_URL_HOST) . ".html", (string) $body);
 
 		return "huzzah! \n";
 	}
