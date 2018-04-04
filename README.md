@@ -4,8 +4,8 @@ Slurp is a PHP CLI app that makes use of the [Guzzle HTTP client](https://github
 
 ## Requirements
 
-[PHP 5.5](https://secure.php.net/) or greater
-[Composer](https://getcomposer.org/)
++ [PHP 5.5](https://secure.php.net/) or greater
++ [Composer](https://getcomposer.org/)
 
 ## Installation
 
