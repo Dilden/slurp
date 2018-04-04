@@ -1,5 +1,6 @@
 composer.lock
 /vendor
+/slurped
 
 *.sublime-project
 *.sublime-workspace
