@@ -1,6 +1,6 @@
 ## What is slurp?
 
-Slurp is a PHP CLI app that is useful for downloading a web page (or web site) and searching that for a particular string, phrase, or HTML element.
+Slurp is a PHP CLI app that makes use of the [Guzzle HTTP client](https://github.com/guzzle/guzzle) and is used for downloading a web page (or web site) and searching the download for a particular string, phrase, or HTML element.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ For now, you should clone this [GitHub repo](https://github.com/Dilden/slurp). O
 
 ## How do I use slurp?
 
-It's easy. After installing slurp, just run the script with `php slurp.php`.
+It's easy. After installing slurp, just run the script with `./slurp <WEB_ADDRESS>`. Make sure the bash script is executable in your environment.
 
 ## License
 
