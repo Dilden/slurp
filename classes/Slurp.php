@@ -22,7 +22,8 @@ class Slurp {
 		$url = $this->params[1];
 
 		// Directory check
-		if (file_exists(rtrim($this->config->directory, "/")))
+		if (file_exists(rtrim($this->config->directory, "/")) &&
+			!is_dir($this->config->directory))
 		{
 			return "Couldn't create save directory \"{$this->config->directory}\" because a file exists with that name. \n";
 		}
