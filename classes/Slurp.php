@@ -3,6 +3,7 @@
 namespace slurp;
 
 use GuzzleHttp\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
 class Slurp {
 
@@ -10,6 +11,7 @@ class Slurp {
 	function __construct($config, $params) {
 		$this->config = $config;
 		$this->params = $params;
+		$this->returnStatus = "";
 	}
 
 	// main functionality
@@ -39,8 +41,28 @@ class Slurp {
 		$response = $client->request('GET');
 		$body = $response->getBody();
 
-		file_put_contents($this->config->directory . parse_url($url,  PHP_URL_HOST) . ".html", (string) $body);
 
-		return "huzzah! \n";
+		if($this->config->search) {
+			if(isset($this->params[2])) {
+				$this->returnStatus .= $this->domSearch($body, $this->params[2]);
+			}
+			else {
+				return "Missing search parameter \n";
+			}
+		}
+
+		if($this->config->saveAll) {
+			file_put_contents($this->config->directory . parse_url($url,  PHP_URL_HOST) . ".html", (string) $body);
+		}
+
+		return $this->returnStatus .= "\n \n Slurping complete! \n";
+	}
+
+	private function domSearch($haystack, $needle) {
+		$crawler = new Crawler($haystack);
+		$results = "";
+
+
+		return $result . " \n";
 	}
 }

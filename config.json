@@ -1,4 +1,5 @@
 {
 	"directory": "slurped/",
-	"saveAll": true	
+	"saveAll": true,
+	"search": true
 }
