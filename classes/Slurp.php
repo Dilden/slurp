@@ -41,27 +41,32 @@ class Slurp {
 		$response = $client->request('GET');
 		$body = $response->getBody();
 
-
 		if($this->config->search) {
 			if(isset($this->params[2])) {
-				$this->returnStatus .= $this->domSearch($body, $this->params[2]);
+
+				$query = "";
+				for ($i=2; $i <= count($this->params); $i++) { 
+					$query .= $this->params[$i] . " ";
+				}
+				$this->returnStatus .= $this->domSearch($body->getContents(), $query);
 			}
 			else {
-				return "Missing search parameter \n";
+				return "Missing query parameter \n";
 			}
 		}
 
 		if($this->config->saveAll) {
-			file_put_contents($this->config->directory . parse_url($url,  PHP_URL_HOST) . ".html", (string) $body);
+			file_put_contents($this->config->directory . parse_url($url,  PHP_URL_HOST) . ".html", $body->getContents());
 		}
 
-		return $this->returnStatus .= "\n \n Slurping complete! \n";
+		return $this->returnStatus .= "\nSlurping complete! \n";
 	}
 
 	private function domSearch($haystack, $needle) {
 		$crawler = new Crawler($haystack);
-		$results = "";
+		print_r($crawler->filter($needle));
 
+		$result = "";
 
 		return $result . " \n";
 	}
